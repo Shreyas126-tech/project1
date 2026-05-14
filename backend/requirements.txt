@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+python-dotenv
+huggingface_hub
+requests
+pydantic
+textstat
+spacy
+nltk
+sentence-transformers
+torch
+faiss-cpu
+langchain
+langchain-community
+datasets
+transformers

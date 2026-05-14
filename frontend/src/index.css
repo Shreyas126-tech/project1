@@ -1,0 +1,86 @@
+:root {
+  font-family: 'Inter', system-ui, sans-serif;
+  color-scheme: dark;
+  --bg: #060611;
+  --surface: rgba(255,255,255,0.03);
+  --surface-hover: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.08);
+  --border-glow: rgba(139,92,246,0.4);
+  --accent: #8b5cf6;
+  --accent2: #06b6d4;
+  --accent-glow: rgba(139,92,246,0.35);
+  --green: #10b981;
+  --text: #f1f5f9;
+  --muted: #64748b;
+  --sub: #94a3b8;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% -10%, rgba(139,92,246,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 110%, rgba(6,182,212,0.1) 0%, transparent 60%),
+    var(--bg);
+}
+
+#root { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 2rem 4rem; }
+
+/* ── Typography ── */
+h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.03em; }
+h1 .gradient-text {
+  background: linear-gradient(135deg, #c4b5fd 0%, #8b5cf6 40%, #06b6d4 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+/* ── Glass Card ── */
+.glass {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.glass:hover { border-color: rgba(139,92,246,0.25); }
+.glass-glow { box-shadow: 0 0 40px rgba(139,92,246,0.08), inset 0 1px 0 rgba(255,255,255,0.05); }
+
+/* ── Buttons ── */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: #fff; border: none; padding: 0.8rem 1.8rem;
+  border-radius: 14px; font-size: 1rem; font-weight: 700;
+  cursor: pointer; box-shadow: 0 4px 20px rgba(139,92,246,0.4);
+  transition: all 0.25s; white-space: nowrap;
+}
+.btn-primary:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(139,92,246,0.5); }
+.btn-primary:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: transparent; border: 1px solid var(--border);
+  color: var(--sub); padding: 0.55rem 1.1rem; border-radius: 10px;
+  font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: all 0.2s;
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--text); background: rgba(139,92,246,0.08); }
+
+/* ── Inputs ── */
+textarea, select {
+  background: rgba(0,0,0,0.3); border: 1px solid var(--border);
+  border-radius: 12px; color: var(--text); font-family: inherit;
+  transition: border-color 0.25s, box-shadow 0.25s; width: 100%;
+}
+textarea { padding: 1rem 1.1rem; font-size: 0.95rem; line-height: 1.8; resize: vertical; min-height: 280px; }
+textarea::placeholder { color: var(--muted); }
+textarea:focus, select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(139,92,246,0.15); }
+select { padding: 0.65rem 0.9rem; font-size: 0.9rem; cursor: pointer; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(139,92,246,0.4); border-radius: 4px; }
